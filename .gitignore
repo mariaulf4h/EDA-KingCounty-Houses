@@ -127,13 +127,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-.DSStore
-data/*.csv
-data/*.tsv
-data/*.zip
-data/*.gsv
-data/*.json
-
-models/*.pickle
-models/*.pkl
