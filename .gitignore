@@ -128,12 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-.DSStore
-data/*.csv
-data/*.tsv
-data/*.zip
-data/*.gsv
-data/*.json
-
-models/*.pickle
-models/*.pkl
+# delete .DS_Store
+.DS_Store
