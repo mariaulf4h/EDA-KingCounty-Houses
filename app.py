@@ -217,7 +217,6 @@ plot_partregress_grid(results, fig=fig_ols_3)
 # Import necessary libraries fo Dash
 
 import dash
-from jupyter_dash import JupyterDash
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
@@ -364,4 +363,4 @@ app.layout = html.Div([
 
 
 if __name__ == '__main__':
-    server = app.server()
+    app.run_server()
