@@ -223,8 +223,12 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
+
+
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 notes=''
+
+server = app.server
 
 def getPlot(plotObject, title, notes="", static=False):
     if static == True:
@@ -360,4 +364,4 @@ app.layout = html.Div([
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8051)
+    server = app.server()
