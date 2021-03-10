@@ -64,6 +64,7 @@ df.query("zipcode in @seattle", inplace=True)
 
 # map houses concentrated in Seattle
 
+
 plt.figure(figsize=(20,12))
 sns_map = sns.jointplot(x=df.long, y=df.lat, size=9, color= "purple") 
 plt.title("The Concentration of Houses in the City Center: Seattle")
@@ -185,6 +186,7 @@ from statsmodels.formula.api import ols
 import statsmodels.api as sm
 from statsmodels.graphics.regressionplots import plot_partregress_grid
 import statsmodels.formula.api as smf
+import base64
 
 
 # single linear regression for price & Sqft_living (before filtering the mid-ranged price)
@@ -229,11 +231,14 @@ notes=''
 
 server = app.server
 
+
 def getPlot(plotObject, title, notes="", static=False):
     if static == True:
+        image_filename = f"assets/{plotObject}"
+        encoded_image = base64.b64encode(open(image_filename, "rb").read())
         card = dbc.CardBody([
             dbc.Col([
-                html.Img(src=app.get_asset_url(plotObject),
+                html.Img(src="data:image/png;base64,{}".format(encoded_image.decode()),
                 className='img-thumbnail img-fluid p-1',
                 style=dict(width='600px')
                 ),
@@ -264,6 +269,8 @@ def getPlot(plotObject, title, notes="", static=False):
     ])
 
 
+encoded_image = base64.b64encode(open("assets/seattle_foto.png", "rb").read())
+
 # Author info
 def getAuthor():
     return html.Div([
@@ -271,7 +278,7 @@ def getAuthor():
             dbc.CardBody([
                 dbc.Row([
                     dbc.Col([
-                        html.Img(src=app.get_asset_url("seattle_foto.png")
+                        html.Img(src="data:image/png;base64,{}".format(encoded_image.decode())
                     , width="500px")], width='6'),
                     dbc.Col([
                         html.Div([
@@ -298,7 +305,6 @@ def getAuthor():
             )
         )
     ])
-
 
 
 app.layout = html.Div([
