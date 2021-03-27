@@ -283,8 +283,7 @@ def getAuthor():
                     dbc.Col([
                         html.Div([
                             html.P('Hi, my name is Maria Ulfah.'),
-                            html.P("I'm a participant at Data Science Bootcamp February - April 2021, Neufische Hamburg."),
-                            html.P("I did Exploratory Data Analysis for King County House Price Dataset."),
+                            html.P("Exploratory Data Analysis for King County House Price Dataset."),
                             html.P("This is my first project, finding the best house for my Stakeholder: Nicole Johnson"),
                             html.P("Mr. Johnson wants to buy a house in lively and centered neighborhood, with mid-ranged price."),
                             html.P("The Hypothesis:"),
