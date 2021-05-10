@@ -286,7 +286,7 @@ def getAuthor():
                     dbc.Col([
                         html.Div([
                             html.P('Hi, my name is Maria Ulfah.'),
-                            html.P("This is my first data science project at Neue Fische GmbH to find the best house for my Stakeholder: Nicole Johnson"),
+                            html.P("This is my first data science project at neuefische GmbH to find the best house for my Stakeholder: Nicole Johnson"),
                             html.P("Mr. Johnson wants to buy a house in a lively and a centered neighborhood, with a mid-ranged price."),
                             html.P("The Hypotheses are:"),
                             html.P("1. The Houses in centered neighborhood are more expensive than in the country sides"),
@@ -321,11 +321,11 @@ app.layout = html.Div([
             html.Br(),
             dbc.Row([
                 dbc.Col([
-                    getPlot(fig_heatmap, "The House Features: How particular features influence the price?", "Some features have strong positive correlations to the price: sqft_living, sqft_above, bedrooms, and grade")
-                ], width=8),
+                    getPlot(fig_heatmap, "The Houses' Features: How particular features influence the price?", "Some features have strong positive correlations to the price: sqft_living, sqft_above, bedrooms, and grade")
+                ], width=7),
                 dbc.Col([
-                    getPlot(fig_sql_bed, "The Relationship between House Interior's size and the Price", "Bigger houses tend to have more bedrooms, more bedrooms are consecutively more expensive too. With a mid-ranged price, Mr. Johson likely can afford the house with number of Bedrooms no more than three, and has size around 2.000 - 3.000 sq feet")
-                ], width=4),
+                    getPlot(fig_sql_bed, "The Relationship between Houses' Interior size and the Price", "Bigger houses tend to have more bedrooms, more bedrooms are consecutively more expensive too. With a mid-ranged price, Mr. Johson likely can afford the house with number of Bedrooms no more than three, and has size around 2.000 - 3.000 sq feet")
+                ], width=5),
             ], align='center'), 
             html.Br(),
             dbc.Row([
