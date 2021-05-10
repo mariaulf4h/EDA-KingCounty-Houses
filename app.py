@@ -85,7 +85,7 @@ fig_heatmap = go.Figure(go.Heatmap(
         colorscale='rdylgn', zmin=-1, zmax=1))
 
 fig_heatmap.update_layout(height=600, width=800, #ideally height= 1000, and width=800, it takes the notebook slower
-                  title_text="House Features Influenced the Price")
+                  title_text="Houses' Features which influence the Price")
 #fig_heatmap.show()
 
 
