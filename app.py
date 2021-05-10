@@ -274,27 +274,28 @@ encoded_image = base64.b64encode(open("assets/seattle_foto.png", "rb").read())
 # Author info
 def getAuthor():
     return html.Div([
-        dbc.Card(
+        dbc.Card([
+            dbc.CardHeader([
+                html.H5("Project: Exploratory Data Analysis for King County House Price Dataset.")
+            ]),
             dbc.CardBody([
                 dbc.Row([
-                    dbc.Col([
-                        html.Img(src="data:image/png;base64,{}".format(encoded_image.decode())
-                    , width="500px")], width='6'),
+                    # dbc.Col([
+                    #     html.Img(src="data:image/png;base64,{}".format(encoded_image.decode())
+                    # , width="500px")], width='6'),
                     dbc.Col([
                         html.Div([
                             html.P('Hi, my name is Maria Ulfah.'),
-                            html.P("Exploratory Data Analysis for King County House Price Dataset."),
-                            html.P("This is my first project, finding the best house for my Stakeholder: Nicole Johnson"),
-                            html.P("Mr. Johnson wants to buy a house in lively and centered neighborhood, with mid-ranged price."),
-                            html.P("The Hypothesis:"),
-                            html.P("1. The Houses in centered neighborhood is more expensive than in the country sides"),
+                            html.P("This is my first data science project at Neue Fische GmbH to find the best house for my Stakeholder: Nicole Johnson"),
+                            html.P("Mr. Johnson wants to buy a house in a lively and a centered neighborhood, with a mid-ranged price."),
+                            html.P("The Hypotheses are:"),
+                            html.P("1. The Houses in centered neighborhood are more expensive than in the country sides"),
                             html.P("2. The larger the house, the higher the price"),
-                            html.P("3. The houses in the centered neighborhood with mid-ranged of price have small to medium size, and with standard facility"),
-                            html.P("Then, the objective of my analysis is:"),
-                            html.P("1. Find the Houses located in the central city of King County"),
-                            html.P("2. The houses with price around median"), 
-                            html.P("3. Features of House prioritizing the convenience and functionality, luxury is not that important"),
-                            html.A("You can find full version of analysis in my Github.",href="https://github.com/neuefische/EDA-individual-assignment"),
+                            html.P("3. The houses in the centered neighborhood with a mid-ranged of price have small to medium size, and with averaged facility"),
+                            html.P("In this regard, the objectives of my analysis are:"),
+                            html.P("1. To filter the Houses which are located only in the central city of King County"),
+                            html.P("2. To find the Houses with price around median, by prioritizing the convenience and functionality. Note: luxury is not that important"), 
+                            html.A("You can find a full version of my analysis in my Github.", href="https://github.com/neuefische/EDA-individual-assignment"),
                         ])
                     ], width='8')
                 ])
@@ -302,7 +303,7 @@ def getAuthor():
                 
             ],
             )
-        )
+        ])
     ])
 
 
@@ -312,42 +313,42 @@ app.layout = html.Div([
                dbc.Row([
                 dbc.Col([
                     getAuthor()
-                ], width=12),
-            ], align='center'), 
-            html.Br(),
-            dbc.Row([
-              dbc.Col([
-                    getPlot('sns_map.png', "The Map of Houses Concentrated in Seattle", "The central neighborhood areas have the Zipcode between 98101 - 98199, which are located inner Seattle City Center. There are around 7.020 of houses available for sell in this area", static=True)
-                ], width=5),
-                dbc.Col([
-                    getPlot(fig_heatmap, "The House Features: How particular features influence the price?", "Some features have strong positive correlation to the price: sqft_living, sqft_above, bedrooms, and grade")
-                ], width=7),
-            ], align='center'), 
-            html.Br(),
-            dbc.Row([
-                dbc.Col([
-                    getPlot(fig_sql_bed, "The Relationship between House Interior's size and the Price", "Bigger house tends to have more bedrooms, more bedrooms tend to be more expensive too. With mid-ranged price, Mr. Johson likely can afford the house with number of Bedrooms no more than three, and has size around 2.000 - 3.000 sq feet")
                 ], width=6),
                 dbc.Col([
-                    getPlot(fig_sqabove_floors, "The Relationship between House size (apart from Basement) and the Price", "Number of floors are not determined by size, some houses with small size have more than one floor")
+                    getPlot('sns_map.png', "The Map of Houses Concentrated in Seattle", "The central neighborhood areas have the Zipcode between 98101 - 98199, which are located in the Seattle City Center. There are around 7.020 houses available for sell in this area", static=True)
+                ], width=6),
+            ], align='center'), 
+            html.Br(),
+            dbc.Row([
+                dbc.Col([
+                    getPlot(fig_heatmap, "The House Features: How particular features influence the price?", "Some features have strong positive correlations to the price: sqft_living, sqft_above, bedrooms, and grade")
+                ], width=6),
+                dbc.Col([
+                    getPlot(fig_sql_bed, "The Relationship between House Interior's size and the Price", "Bigger houses tend to have more bedrooms, more bedrooms are consecutively more expensive too. With a mid-ranged price, Mr. Johson likely can afford the house with number of Bedrooms no more than three, and has size around 2.000 - 3.000 sq feet")
+                ], width=6),
+            ], align='center'), 
+            html.Br(),
+            dbc.Row([
+                dbc.Col([
+                    getPlot(fig_sqabove_floors, "The Relationship between the House size (apart from Basement) and the Price", "The Number of floors are not determined by the size. Some houses with small size have more than one floor.")
+                ], width=6),
+                dbc.Col([
+                    getPlot(fig_sql_grade, "The Relationship between Houses' grade and the Price", "The higher the grade of the house, the more expensive is the price. However, the grade is not a Mr. Johnson's concern.")
                 ], width=6),
             ], align='start'), 
             html.Br(),
             dbc.Row([
                 dbc.Col([
-                    getPlot(fig_sql_grade, "The Relationship between Houses' grade and the Price", "The higher the grade of the house, the more expensive the price. However, Mr. Johnson does not really care about the grade")
+                    getPlot(fig_sqabove_cond, "The Relationship between Houses' size (apart from Basement) and the Price, does houses' condition matter?", "The houses' condition does not really influence the price. In his budget, Mr. Johnson can still possibly afford a house in such a good condition.")
                 ], width=6),
                 dbc.Col([
-                    getPlot(fig_sqabove_cond, "The Relationship between House size (apart from Basement) and the Price, does condition matter?", "The houses condition does not really influence the price. In his budget, Mr. Johnson can still afford a house in a good condition")
+                    getPlot(fig_date2, "Let's see how the price changing over the periods (within a year)", "The period in a year does not really influence the price. However, Mr.Johson has more possibilities to find a house with his budget in some specific areas, since the location matters.")
                 ], width=6),
             ], align='start'),
             dbc.Row([
                 dbc.Col([
-                    getPlot(fig_date2, "Let's see how the price changing over the periods (within a year)", "The period in a year does not really influence the price. But in some areas, likely have more preferences to find a house with Mr.Johson's budget")
-                ], width=6),
-                dbc.Col([
-                    getPlot(plotly_map, "where are the best strategic location for Mr. Nicole?, affordable but connected to the city center", "There are around 2800s Houses in Seatlle that suit the Nicole's Budget (500K - 600K), with around 1.500 - 2.500 sqft in size and has number of bedrooms max 3")
-                ], width=6)
+                    getPlot(plotly_map, "where are the best strategic location for Mr. Johnson?, affordable but connected to the city center", "There are around 2800 Houses in Seattle that suit Mr. Johnson's Budget (500K - 600K), with around 1.500 - 2.500 sqft in the size and has a max 3 numbers of bedrooms")
+                ], width=12),
             ], align='start'), 
             html.Br(),
             dbc.Row([
