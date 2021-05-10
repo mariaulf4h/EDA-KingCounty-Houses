@@ -297,7 +297,7 @@ def getAuthor():
                             html.P("2. To find the Houses with price around median, by prioritizing the convenience and functionality. Note: luxury is not that important"), 
                             html.A("You can find a full version of my analysis in my Github.", href="https://github.com/neuefische/EDA-individual-assignment"),
                         ])
-                    ], width='8')
+                    ], width='12')
                 ])
                 
                 
@@ -322,19 +322,19 @@ app.layout = html.Div([
             dbc.Row([
                 dbc.Col([
                     getPlot(fig_heatmap, "The House Features: How particular features influence the price?", "Some features have strong positive correlations to the price: sqft_living, sqft_above, bedrooms, and grade")
-                ], width=6),
-                dbc.Col([
-                    getPlot(fig_sql_bed, "The Relationship between House Interior's size and the Price", "Bigger houses tend to have more bedrooms, more bedrooms are consecutively more expensive too. With a mid-ranged price, Mr. Johson likely can afford the house with number of Bedrooms no more than three, and has size around 2.000 - 3.000 sq feet")
-                ], width=6),
+                ], width=12),
             ], align='center'), 
             html.Br(),
             dbc.Row([
                 dbc.Col([
+                    getPlot(fig_sql_bed, "The Relationship between House Interior's size and the Price", "Bigger houses tend to have more bedrooms, more bedrooms are consecutively more expensive too. With a mid-ranged price, Mr. Johson likely can afford the house with number of Bedrooms no more than three, and has size around 2.000 - 3.000 sq feet")
+                ], width=4),
+                dbc.Col([
                     getPlot(fig_sqabove_floors, "The Relationship between the House size (apart from Basement) and the Price", "The Number of floors are not determined by the size. Some houses with small size have more than one floor.")
-                ], width=6),
+                ], width=4),
                 dbc.Col([
                     getPlot(fig_sql_grade, "The Relationship between Houses' grade and the Price", "The higher the grade of the house, the more expensive is the price. However, the grade is not a Mr. Johnson's concern.")
-                ], width=6),
+                ], width=4),
             ], align='start'), 
             html.Br(),
             dbc.Row([
