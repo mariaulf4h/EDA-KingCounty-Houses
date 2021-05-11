@@ -315,7 +315,7 @@ app.layout = html.Div([
                     getAuthor()
                 ], width=6),
                 dbc.Col([
-                    getPlot('sns_map.png', "The Map of Houses Concentrated in Seattle", "The central neighborhood areas have the Zipcode between 98101 - 98199, which are located in the Seattle City Center. There are around 7.020 houses available for sell in this area", static=True)
+                    getPlot('sns_map.png', "The Map of Houses Concentrated in Seattle", "The central neighborhood areas have the Zipcode between 98101 - 98199, which are located in the Seattle City Center. There are around 7020 houses available for sale in this area", static=True)
                 ], width=6),
             ], align='center'), 
             html.Br(),
