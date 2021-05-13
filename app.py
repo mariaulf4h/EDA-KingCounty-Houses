@@ -84,7 +84,7 @@ fig_heatmap = go.Figure(go.Heatmap(
         z=corr_df.values.tolist(),
         colorscale='rdylgn', zmin=-1, zmax=1))
 
-fig_heatmap.update_layout(height=600, width=800, #ideally height= 1000, and width=800, it takes the notebook slower
+fig_heatmap.update_layout(height=300, width=400, #ideally height= 1000, and width=800, it takes the notebook slower
                   title_text="Houses' Features which influence the Price")
 #fig_heatmap.show()
 
@@ -322,10 +322,10 @@ app.layout = html.Div([
             dbc.Row([
                 dbc.Col([
                     getPlot(fig_heatmap, "The Houses' Features: How particular features influence the price?", "Some features have strong positive correlations to the price: sqft_living, sqft_above, bedrooms, and grade")
-                ], width=8),
+                ], width=7),
                 dbc.Col([
                     getPlot(fig_sql_bed, "The Relationship between Houses' Interior size and the Price", "Bigger houses tend to have more bedrooms, more bedrooms are consecutively more expensive too. With a mid-ranged price, Mr. Johson likely can afford the house with number of Bedrooms no more than three, and has size around 2.000 - 3.000 sq feet")
-                ], width=4),
+                ], width=5),
             ], align='center'), 
             html.Br(),
             dbc.Row([
