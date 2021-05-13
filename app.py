@@ -84,7 +84,7 @@ fig_heatmap = go.Figure(go.Heatmap(
         z=corr_df.values.tolist(),
         colorscale='rdylgn', zmin=-1, zmax=1))
 
-fig_heatmap.update_layout(height=300, width=400, #ideally height= 1000, and width=800, it takes the notebook slower
+fig_heatmap.update_layout(height=500, width=600, #ideally height= 1000, and width=800, it takes the notebook slower
                   title_text="Houses' Features which influence the Price")
 #fig_heatmap.show()
 
