@@ -322,10 +322,10 @@ app.layout = html.Div([
             dbc.Row([
                 dbc.Col([
                     getPlot(fig_heatmap, "The Houses' Features: How particular features influence the price?", "Some features have strong positive correlations to the price: sqft_living, sqft_above, bedrooms, and grade")
-                ], width=7),
+                ], width=8),
                 dbc.Col([
                     getPlot(fig_sql_bed, "The Relationship between Houses' Interior size and the Price", "Bigger houses tend to have more bedrooms, more bedrooms are consecutively more expensive too. With a mid-ranged price, Mr. Johson likely can afford the house with number of Bedrooms no more than three, and has size around 2.000 - 3.000 sq feet")
-                ], width=5),
+                ], width=4),
             ], align='center'), 
             html.Br(),
             dbc.Row([
