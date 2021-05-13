@@ -84,7 +84,7 @@ fig_heatmap = go.Figure(go.Heatmap(
         z=corr_df.values.tolist(),
         colorscale='rdylgn', zmin=-1, zmax=1))
 
-fig_heatmap.update_layout(height=500, width=600, #ideally height= 1000, and width=800, it takes the notebook slower
+fig_heatmap.update_layout(height=800, width=1000, #ideally height= 1000, and width=800, it takes the notebook slower
                   title_text="Houses' Features which influence the Price")
 #fig_heatmap.show()
 
@@ -322,29 +322,31 @@ app.layout = html.Div([
             dbc.Row([
                 dbc.Col([
                     getPlot(fig_heatmap, "The Houses' Features: How particular features influence the price?", "Some features have strong positive correlations to the price: sqft_living, sqft_above, bedrooms, and grade")
-                ], width=7),
-                dbc.Col([
-                    getPlot(fig_sql_bed, "The Relationship between Houses' Interior size and the Price", "Bigger houses tend to have more bedrooms, more bedrooms are consecutively more expensive too. With a mid-ranged price, Mr. Johson likely can afford the house with number of Bedrooms no more than three, and has size around 2.000 - 3.000 sq feet")
-                ], width=5),
+                ], width=12),
             ], align='center'), 
             html.Br(),
             dbc.Row([
                 dbc.Col([
-                    getPlot(fig_sqabove_floors, "The Relationship between the House size (apart from Basement) and the Price", "The Number of floors are not determined by the size. Some houses with small size have more than one floor.")
+                    getPlot(fig_sql_bed, "The Relationship between Houses' Interior size and the Price", "Bigger houses tend to have more bedrooms, more bedrooms are consecutively more expensive too. With a mid-ranged price, Mr. Johson likely can afford the house with number of Bedrooms no more than three, and has size around 2.000 - 3.000 sq feet")
                 ], width=6),
                 dbc.Col([
-                    getPlot(fig_sql_grade, "The Relationship between Houses' grade and the Price", "The higher the grade of the house, the more expensive is the price. However, the grade is not a Mr. Johnson's concern.")
+                    getPlot(fig_sqabove_floors, "The Relationship between the House size (apart from Basement) and the Price", "The Number of floors are not determined by the size. Some houses with small size have more than one floor.")
                 ], width=6),
             ], align='start'), 
             html.Br(),
             dbc.Row([
                 dbc.Col([
-                    getPlot(fig_sqabove_cond, "The Relationship between Houses' size (apart from Basement) and the Price, does houses' condition matter?", "The houses' condition does not really influence the price. In his budget, Mr. Johnson can still possibly afford a house in such a good condition.")
+                    getPlot(fig_sql_grade, "The Relationship between Houses' grade and the Price", "The higher the grade of the house, the more expensive is the price. However, the grade is not a Mr. Johnson's concern.")
                 ], width=6),
                 dbc.Col([
-                    getPlot(fig_date2, "Let's see how the price changing over the periods (within a year)", "The period in a year does not really influence the price. However, Mr.Johson has more possibilities to find a house with his budget in some specific areas, since the location matters.")
+                    getPlot(fig_sqabove_cond, "The Relationship between Houses' size (apart from Basement) and the Price, does houses' condition matter?", "The houses' condition does not really influence the price. In his budget, Mr. Johnson can still possibly afford a house in such a good condition.")
                 ], width=6),
             ], align='start'),
+            dbc.Row([
+                dbc.Col([
+                    getPlot(fig_date2, "Let's see how the price changing over the periods (within a year)", "The period in a year does not really influence the price. However, Mr.Johson has more possibilities to find a house with his budget in some specific areas, since the location matters.")
+                ], width=12),
+            ], align='start'), 
             dbc.Row([
                 dbc.Col([
                     getPlot(plotly_map, "where are the best strategic location for Mr. Johnson?, affordable but connected to the city center", "There are around 2800 Houses in Seattle that suit Mr. Johnson's Budget (500K - 600K), with around 1.500 - 2.500 sqft in the size and has a max 3 numbers of bedrooms")
